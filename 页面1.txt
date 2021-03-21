@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(BC.jpg);
+            background-repeat: no-repeat;
+             background-size:100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        function fun(type) {
+            var un=jQuery("#username");
+            var pwd=jQuery("#password");
+            // var un = $("#username");
+            // var pwd = $("#password");
+            // var un = document.getElementById("username");
+            // var pwd = document.getElementById("password");
+            if(type==1){
+                
+             if(un.val().trim()==" " || pwd.val().trim()==" "){
+                 alert("密码和用户名不能为空"); 
+              }
+                
+                if (pwd.val() != "123456" || un.val() != "123456") {
+                    alert("账号或者密码输入错误");  
+            }
+            if(pwd.val() == "123456" || un.val() == "123456")
+            {
+                alert("登录成功");
+            }
+          
+
+        } else if(type==2){
+                    if(confirm("是否正确清空？")){
+                        // 清空
+                        un.value = "";
+                        pwd.value = "";
+                        
+                    }
+                }
+        }
+    </script>
+</head>
+
+<body>
+    <div align ="center">
+        <form action="" method="post" >
+            <table border="1px" >
+                <tr>
+                    <th>姓名</th>
+                    <td><input type="text" id="username"></td>
+                </tr>
+                <tr>
+                    <th>密码</th>
+                    <td><input type="password" id="password"></td>
+                </tr>
+                <tr>
+                    <th>你的主页</th>
+                    <td><input type="text" value="http://" id="http"></td>
+                </tr>
+                <tr>
+                    <th>性别</th>
+                    <td><input type="radio" checked> 男
+                        <input type="radio"> 女
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>专业</th>
+                    <td><select name="major">
+                            <option value="volvo">电子商务</option>
+                            <option value="saab">软件工程</option>
+                            <option value="fiat">计算机科学与技术</option>
+                            <option value="audi">土木工程</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <th>爱好</th>
+                    <td><input type="checkbox">篮球
+                        <input type="checkbox">读书
+                        <input type="checkbox">上网
+                        <input type="checkbox">音乐
+                        <input type="checkbox">瑜伽
+                        <input type="checkbox">网球
+                    </td>
+                </tr>
+                <tr>
+                    <th>个人简介</th>
+                    <td><textarea name="" id="" cols="30" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <th>设置头像</th>
+                    <td><input type="text"><input type="file"> </td>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <td><input type="button" value="提交" onclick="fun(1)">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="reset" value="重置" onclick="fun(2)">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
