@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        function caclute(type){
+
+            var num1=jQuery("#ddd");
+            var num2=jQuery("#aaa");
+            // if(num1.val==" "){
+            //         alert("数字不能为空"); 
+            //      }if(num2.val==""){
+
+            //         alert("数字不能为空"); 
+            //      }
+                 var result = 0;
+                 if(type==1){                
+                //if(num.val().trim()==" " || num2.val().trim()==" ")
+                 result=parseInt(num1.val()) + parseInt(num2.val());
+                 }
+                 if (type==2){
+                    result=parseInt(num1.val()) - parseInt(num2.val());   
+                 }
+                 if (type==3){
+                    result=parseInt(num1.val()) * parseInt(num2.val());   
+                 }
+                 if (type==4){
+                    jQuery("#resultDiv").html("");
+                    num1.val()="";  
+                    num2.val()="";  
+                 }
+                 jQuery("#resultDiv").text("result");
+        }
+    </script>
+</head>
+<div style="text-align:center;">
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;计算器</div>
+    <div >
+        数字1：<input id="ddd" type="number" placeholder="请输入数字1"> 
+    </div>
+    <br>
+    <div >
+        数字2：<input id="aaa" type="number" placeholder="请输入数字2"> 
+    </div>
+    <br>
+    <div >
+        <input type="button" onclick="caclute(1)" value="加法+">&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" onclick="caclute(2)" value="减法-">
+   </div> 
+   <br>
+   <div >
+    <input type="button" onclick="caclute(3)" value="乘法*">&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" onclick="caclute(4)" value="清 空">
+</div> 
+
+<div id="resultDiv">
+
+</div>
+</div>
+
+
+<body>
+    
+</body>
+</html>
+
+
+
+
