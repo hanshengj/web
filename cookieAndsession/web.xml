@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"
+         metadata-complete="true">
+<!--文件上传-->
+
+  <servlet>
+    <servlet-name>file</servlet-name>
+    <servlet-class>MyFileServlet11</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>file</servlet-name>
+    <url-pattern>/file</url-pattern>
+  </servlet-mapping>
+
+
+  <!--设置cookie-->
+
+  <servlet>
+    <servlet-name>setcookie</servlet-name>
+    <servlet-class>SetCookieServlet11</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>setcookie</servlet-name>
+    <url-pattern>/setcookie</url-pattern>
+  </servlet-mapping>
+
+
+  <!--获得cookie-->
+
+  <servlet>
+    <servlet-name>getcookie</servlet-name>
+    <servlet-class>GetCookieServlet11</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getcookie</servlet-name>
+    <url-pattern>/getcookie</url-pattern>
+  </servlet-mapping>
+
+
+  <!--获得cookie-->
+
+  <servlet>
+    <servlet-name>mysession</servlet-name>
+    <servlet-class>MySessionServlet11</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mysession</servlet-name>
+    <url-pattern>/mysession</url-pattern>
+  </servlet-mapping>
+</web-app>
