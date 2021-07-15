@@ -1,0 +1,146 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>判断三角形的形状</title>
+    <link rel="stylesheet" type="text/css" href="NewLogin.css" />
+
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        function myck(type){
+            var input_username = jQuery("#username");
+            var input_pwd = jQuery("#pwd");
+            var password2 = jQuery("#pwd2");
+            var id = jQuery("#idcard");
+
+            //var a = document.getElementById("#username");
+            // var input_username2 = document.getElementById("username");
+            if(type==2){
+                if(confirm("是否清空数据？")){
+                    // 清空
+                    input_username.val("");  // input_username2.value="";
+                    input_pwd.val("");
+                    password2.val("");
+                    id.val("");
+                }
+            }
+            if(type==1){
+                // 提交，非空效验
+                if(input_username.val().trim()==""){
+                    alert("请先输入第一条边");
+                    // 设置光标到当前输入框
+                    input_username.focus();
+                    // 终止代码执行
+                    return false;
+                }
+
+
+
+                if(id.val().trim()==""){
+                    alert("请先输入第二条边！");
+                    // 设置光标到当前输入框
+                    id.focus();
+                    // 终止代码执行
+                    return false;
+                }
+
+
+                if(input_pwd.val().trim()==""){
+                    alert("请先输入第三条边！");
+                    // 设置光标到当前输入框
+                    input_pwd.focus();
+                    // 终止代码执行
+                    return false;
+                }
+
+                if(password2.val().trim()==""){
+                    alert("请先选择判断类型！");
+                    // 设置光标到当前输入框
+                    input_pwd.focus();
+                    // 终止代码执行
+                    return false;
+                }
+                var num = parseInt(password2.val());
+                // alert(num);
+                if(num !=1 && num !=2){
+                    alert("选择的类型不合法，请重新选择！");
+                    // 设置光标到当前输入框
+                    password2.focus();
+                    // 终止代码执行
+                    return false;
+                }
+
+
+                jQuery.getJSON("reg",{
+                    "username":input_username.val(),
+                    "idcard":id.val(),
+                    "password2":password2.val(),
+                    "password":input_pwd.val()
+
+                },function (data) {
+                    if(data!=null && data.state==200){
+                        // 说明请求成功
+                        jQuery("#resultDiv").text(parseInt(input_username.val()) + " " +
+                            parseInt(input_pwd.val()) + " " + parseInt(id.val()) + "的判断结果为:" + data.msg);
+                         alert(data.msg);
+                        location.href = "reg.html";
+                    }else{
+                        alert("抱歉：服务异常");
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="login_box">
+    <div id="login_box2">
+        <span >判断三角形</span>
+    </div>
+    <br>
+
+    <div>
+        <div >
+            第一条边：<input type="number" name="username" placeholder="请输入第一条边" id="username">
+        </div>
+    </div>
+    <br>
+
+    <div>
+        <div >
+            第二条边：<input type="number" name="idcard" placeholder="请输入第二条边" id="idcard">
+        </div>
+    </div>
+    <br>
+    <div>
+        <div >
+            第三条边：<input name="number" type="number" placeholder="请输入第三条边" id="pwd">
+        </div>
+    </div>
+    <br>
+    <div>
+        <div>
+
+        </div>
+    </div>
+    <div>
+        <div >
+           判断类型：<input type="number" name="password2" placeholder="1角判断，2边判断" id="pwd2">
+        </div>
+    </div>
+    <br>
+
+    <div id="button1">
+        <div >
+            <input type="button" value="查 看"  onclick="myck(1)">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+            <input type="button" value="清 空"  onclick="myck(2)">
+        </div>
+    </div>
+    <div id="resultDiv">
+
+</div>
+</body>
+</html>
